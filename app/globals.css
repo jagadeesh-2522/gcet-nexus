@@ -1,0 +1,403 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  GCET Nexus Design System — v2.0 Premium
+  ─────────────────────────────────────────────────────────────────────────────
+  Identity: premium student developer collaboration platform.
+  Distinctive, technical, youthful, confident, clean.
+
+  Dark is primary identity — deep refined charcoal-navy with subtle cool
+  undertones. Not pure black, so layered surfaces read distinctly.
+  Light is a sophisticated near-white with subtle blue-grey undertones.
+
+  Accent: distinctive indigo-violet, purposefully different from generic
+  SaaS blue. Confident, technical, slightly creative.
+*/
+
+/* ─── Font variable passthrough ──────────────────────────────────────────── */
+:root {
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body:    "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "Cascadia Code", monospace;
+}
+
+/* ─── Dark theme (primary identity) ─────────────────────────────────────── */
+.dark {
+  /* Backgrounds — layered depth with subtle hue variation */
+  --background:   220 22% 7%;       /* deep refined charcoal-navy */
+  --surface:      220 18% 10%;      /* card / panel — +3% lightness */
+  --surface-2:    220 16% 13%;      /* raised surface — +3% */
+  --surface-3:    220 14% 16%;      /* modals, popovers, elevated chips */
+  --surface-4:    220 12% 19%;      /* highest elevation — used sparingly */
+
+  /* Borders — hairline definition without noise */
+  --border:       220 14% 19%;      /* subtle divider */
+  --border-strong:220 12% 24%;      /* interactive elements, focus adjacent */
+  --border-focus: 248 84% 66%;      /* indigo-violet focus ring */
+
+  /* Text — clear hierarchy via contrast, not size bloat */
+  --foreground:   220 15% 96%;      /* primary text — near-white */
+  --muted:        220 8% 60%;      /* secondary / placeholder — deliberately low */
+  --muted-2:      220 6% 46%;      /* tertiary metadata, timestamps */
+
+  /* Accent — distinctive indigo-violet (not generic SaaS blue) */
+  --accent:            248 84% 66%;
+  --accent-hover:      248 84% 72%;
+  --accent-active:     248 80% 60%;
+  --accent-foreground: 0 0% 100%;
+  --accent-subtle:     248 84% 66% / 0.10;
+  --accent-weak:       248 84% 66% / 0.06;
+
+  /* Semantic — restrained, professional */
+  --live:     152 70% 48%;         /* emerald — recruiting, success */
+  --success:  152 70% 48%;         /* alias for live */
+  --warning:  36 92% 52%;         /* warm amber */
+  --danger:   0 72% 60%;          /* calm confident red */
+
+  /* Shadows — restrained architectural depth
+     Think "subtle elevation" not "floating in space" */
+  --shadow-xs:   0 1px 1px 0 rgb(0 0 0 / 0.20);
+  --shadow-sm:   0 1px 2px 0 rgb(0 0 0 / 0.25), 0 1px 1px -1px rgb(0 0 0 / 0.15);
+  --shadow-md:   0 4px 8px -2px rgb(0 0 0 / 0.35), 0 2px 4px -2px rgb(0 0 0 / 0.20);
+  --shadow-lg:   0 12px 24px -6px rgb(0 0 0 / 0.45), 0 4px 8px -4px rgb(0 0 0 / 0.25);
+  --shadow-xl:   0 24px 48px -12px rgb(0 0 0 / 0.55), 0 8px 16px -8px rgb(0 0 0 / 0.30);
+  --shadow-accent: 0 0 0 1px hsl(248 84% 66% / 0.25), 0 4px 16px -4px hsl(248 84% 66% / 0.20);
+}
+
+/* ─── Light theme ────────────────────────────────────────────────────────── */
+.light {
+  /* Backgrounds */
+  --background:   220 25% 99%;      /* sophisticated near-white */
+  --surface:      220 20% 98%;      /* subtle cool blue-grey tint */
+  --surface-2:    220 16% 96%;
+  --surface-3:    220 14% 94%;
+  --surface-4:    220 12% 91%;
+
+  /* Borders */
+  --border:       220 14% 88%;
+  --border-strong:220 12% 80%;
+  --border-focus: 248 78% 52%;
+
+  /* Text */
+  --foreground:   222 30% 11%;      /* near-black, soft not harsh */
+  --muted:        220 10% 46%;
+  --muted-2:      220 8% 36%;
+
+  /* Accent */
+  --accent:            248 78% 52%;
+  --accent-hover:      248 78% 46%;
+  --accent-active:     248 78% 42%;
+  --accent-foreground: 0 0% 100%;
+  --accent-subtle:     248 78% 52% / 0.08;
+  --accent-weak:       248 78% 52% / 0.04;
+
+  /* Semantic */
+  --live:     152 62% 38%;
+  --success:  152 62% 38%;
+  --warning:  36 92% 42%;
+  --danger:   0 68% 50%;
+
+  /* Shadows */
+  --shadow-xs:   0 1px 1px 0 rgb(0 0 0 / 0.02);
+  --shadow-sm:   0 1px 2px 0 rgb(0 0 0 / 0.04), 0 1px 1px -1px rgb(0 0 0 / 0.03);
+  --shadow-md:   0 4px 10px -2px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.04);
+  --shadow-lg:   0 12px 28px -6px rgb(0 0 0 / 0.10), 0 4px 10px -4px rgb(0 0 0 / 0.05);
+  --shadow-xl:   0 28px 60px -14px rgb(0 0 0 / 0.14), 0 10px 20px -10px rgb(0 0 0 / 0.07);
+  --shadow-accent: 0 0 0 1px hsl(248 78% 52% / 0.20), 0 4px 16px -4px hsl(248 78% 52% / 0.12);
+}
+
+/* ─── Base styles ────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-body);
+  line-height: 1.6;
+  min-height: 100dvh;
+  font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Typography defaults — restrained hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: hsl(var(--foreground));
+}
+
+p {
+  font-family: var(--font-body);
+  line-height: 1.625;
+}
+
+::selection {
+  background-color: hsl(var(--accent) / 0.18);
+  color: hsl(var(--foreground));
+}
+
+/* Scrollbar — subtle, disappears into canvas */
+::-webkit-scrollbar          { width: 8px; height: 8px; }
+::-webkit-scrollbar-track    { background: transparent; }
+::-webkit-scrollbar-thumb    {
+  background: hsl(var(--border));
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-2) / 0.5); background-clip: content-box; }
+
+/* ─── Focus utility ──────────────────────────────────────────────────────── */
+.focus-ring {
+  @apply outline-none;
+  box-shadow: 0 0 0 2px hsl(var(--accent) / 0.25);
+}
+
+.focus-ring-inset {
+  @apply outline-none;
+  box-shadow: inset 0 0 0 1.5px hsl(var(--accent));
+}
+
+/* ─── UI animation keyframes ─────────────────────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* ─── Component layer ────────────────────────────────────────────────────── */
+@layer components {
+
+  /* ── Inputs ── crisp hairline borders, refined internal padding ────── */
+  .input {
+    @apply w-full rounded-md border border-border bg-background px-3.5 py-2.5
+      text-sm text-foreground leading-5
+      placeholder:text-muted-2/70
+      transition-all duration-150
+      focus-visible:outline-none
+      focus-visible:border-accent/50
+      focus-visible:ring-[2px] focus-visible:ring-accent/15
+      disabled:pointer-events-none disabled:opacity-50 disabled:bg-surface;
+  }
+
+  textarea.input {
+    @apply resize-y leading-relaxed;
+  }
+
+  select.input {
+    @apply appearance-none cursor-pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.875rem center;
+    padding-right: 2.5rem;
+  }
+
+  /* ── Buttons ── precision-crafted, intentional micro-interactions ─── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-1.5
+      rounded-md bg-accent px-4 py-2.5
+      text-sm font-semibold text-accent-foreground leading-none
+      shadow-sm
+      transition-all duration-150 ease-out
+      hover:bg-accent-hover hover:shadow-md
+      active:scale-[0.98] active:shadow-sm active:bg-accent-active
+      focus-visible:outline-none focus-visible:ring-[2px] focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background
+      disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none
+      select-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-1.5
+      rounded-md border border-border bg-surface px-4 py-2.5
+      text-sm font-medium text-foreground leading-none
+      transition-all duration-150 ease-out
+      hover:bg-surface-2 hover:border-border-strong hover:shadow-xs
+      active:scale-[0.98]
+      focus-visible:outline-none focus-visible:ring-[2px] focus-visible:ring-accent/25 focus-visible:ring-offset-2 focus-visible:ring-offset-background
+      disabled:pointer-events-none disabled:opacity-50
+      select-none;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-1.5
+      rounded-md px-3 py-2
+      text-sm font-medium text-muted leading-none
+      transition-all duration-150 ease-out
+      hover:bg-surface hover:text-foreground
+      active:scale-[0.97]
+      focus-visible:outline-none focus-visible:ring-[2px] focus-visible:ring-accent/25
+      disabled:pointer-events-none disabled:opacity-50
+      select-none;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-1.5
+      rounded-md bg-danger px-4 py-2.5
+      text-sm font-semibold text-white leading-none
+      shadow-sm
+      transition-all duration-150 ease-out
+      hover:bg-danger/90 hover:shadow-md
+      active:scale-[0.98] active:shadow-sm
+      focus-visible:outline-none focus-visible:ring-[2px] focus-visible:ring-danger/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background
+      disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none
+      select-none;
+  }
+
+  /* Icon-only button base */
+  .btn-icon {
+    @apply flex h-9 w-9 items-center justify-center rounded-md
+      text-muted transition-all duration-150 ease-out
+      hover:bg-surface-2 hover:text-foreground
+      active:scale-95
+      focus-visible:outline-none focus-visible:ring-[2px] focus-visible:ring-accent/25
+      disabled:pointer-events-none disabled:opacity-50
+      select-none;
+  }
+
+  /* ── Cards ── architectural surfaces, not containers ──────────────── */
+  .card {
+    @apply rounded-xl border border-border bg-surface p-5
+      shadow-xs
+      transition-all duration-200 ease-out;
+  }
+
+  .card-interactive {
+    @apply card cursor-pointer
+      hover:border-border-strong hover:shadow-sm hover:-translate-y-0.5
+      active:translate-y-0;
+  }
+
+  .card-elevated {
+    @apply card shadow-sm
+      hover:shadow-md;
+  }
+
+  /* ── Badges ── tiny, readable, semantic ───────────────────────────── */
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-md px-2 py-0.5
+      text-[11px] font-medium leading-none;
+    letter-spacing: 0.01em;
+  }
+
+  .badge-accent {
+    @apply badge bg-accent/10 text-accent border border-accent/15;
+  }
+
+  .badge-success {
+    @apply badge bg-success/10 text-success border border-success/15;
+  }
+
+  .badge-warning {
+    @apply badge bg-warning/10 text-warning border border-warning/15;
+  }
+
+  .badge-danger {
+    @apply badge bg-danger/10 text-danger border border-danger/15;
+  }
+
+  .badge-neutral {
+    @apply badge bg-surface-2 text-muted border border-border;
+  }
+
+  /* ── Form layout helpers ──────────────────────────────────────────── */
+  .field-label {
+    @apply mb-1.5 block text-sm font-medium text-foreground;
+    letter-spacing: -0.005em;
+  }
+
+  .field-error {
+    @apply mt-1.5 block text-xs text-danger;
+  }
+
+  .field-hint {
+    @apply mt-1.5 block text-xs text-muted-2 leading-relaxed;
+  }
+
+  /* ── Nav link ─────────────────────────────────────────────────────── */
+  .nav-link {
+    @apply flex items-center gap-2 rounded-md px-3 py-1.5
+      text-sm font-medium text-muted
+      transition-all duration-150 ease-out
+      hover:bg-surface hover:text-foreground
+      focus-visible:outline-none focus-visible:ring-[2px] focus-visible:ring-accent/25;
+  }
+
+  .nav-link-active {
+    @apply nav-link bg-surface-2 text-foreground;
+    box-shadow: inset 0 -1px 0 0 hsl(var(--accent) / 0.25);
+  }
+
+  /* ── Page heading pattern ─────────────────────────────────────────── */
+  .page-heading {
+    @apply font-display font-semibold tracking-tight text-foreground;
+    font-size: clamp(1.5rem, 2.5vw + 1rem, 2.25rem);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+  }
+
+  /* ── Skeleton loading ─────────────────────────────────────────────── */
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--surface)) 0%,
+      hsl(var(--surface-2)) 50%,
+      hsl(var(--surface)) 100%
+    );
+    background-size: 800px 100%;
+    animation: shimmer 1.8s ease-in-out infinite;
+    border-radius: 0.375rem;
+  }
+
+  /* ── Subtle hairline divider utility ──────────────────────────────── */
+  .hairline-divider {
+    @apply h-px w-full bg-border;
+  }
+}
+
+/* ─── Utility layer — non-component helpers ──────────────────────────────── */
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty  { text-wrap: pretty; }
+
+  .content-auto { content-visibility: auto; }
+
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* Container max width utilities */
+  .container-app { @apply mx-auto w-full max-w-[72rem] px-5 md:px-6 lg:px-8; }
+  .container-content { @apply mx-auto w-full max-w-3xl; }
+  .container-narrow { @apply mx-auto w-full max-w-2xl; }
+}
